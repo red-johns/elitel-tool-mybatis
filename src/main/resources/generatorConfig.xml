@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!--导入属性配置 -->
+    <properties resource="generator.properties"></properties>
+
+    <context id="mysql-generator" defaultModelType="flat">
+        <!-- 自定义注释生成器 -->
+        <commentGenerator type="com.elitel.generator.CustomCommentGenerator">
+            <property name="author" value="elitel"/>
+            <property name="dateFormat" value="yyyy-MM-dd"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${jdbc.driverClass}" connectionURL="${jdbc.connectionURL}"
+                        userId="${jdbc.userId}" password="${jdbc.password}"/>
+        <javaModelGenerator targetPackage="com.elitel.rain.yearfall.entity" targetProject="${generator.project.path}"/>
+        <sqlMapGenerator targetPackage="mybatis\hy010\mapper" targetProject="${generator.project.path}"/>
+        <javaClientGenerator targetPackage="com.elitel.rain.yearfall.dao" targetProject="${generator.project.path}"
+                             type="XMLMAPPER"/>
+
+        <!--domainObjectName 属性为对应要生成的实体名称 不指定默认为表名-->
+        <table tableName="pm_department_d" domainObjectName="Pm001CodeXzqh" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+    </context>
+
+
+</generatorConfiguration>
